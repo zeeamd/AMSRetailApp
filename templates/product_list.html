@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    h4 {
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: right;
+    }
+</style>
+
+<h3>Products</h3>
+
+<table>
+    <tr>
+        <th>BrandName</th>
+        <th>ProductName</th>
+        <th>ProductSize</th>
+        <th>Quantity</th>
+    </tr>
+    {% for x in products %}
+    <tr>
+        <td>{{ x.bname.bname }}</td>
+        <td>{{ x.name }}</td>
+        <td>{{ x.size }}</td>
+        <td>{{ x.quantity }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

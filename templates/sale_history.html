@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    h4 {
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: right;
+    }
+</style>
+
+<h3>Sale History</h3>
+
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Brand Name</th>
+        <th>Product Name</th>
+        <th>Product Size</th>
+        <th>Customer</th>
+        <th>Rate</th>
+        <th>Quantity</th>
+        <th>Discount Type</th>
+        <th>Discount</th>
+        <th>Sell Price</th>
+    </tr>
+    {% for x in allsale %}
+    <tr>
+        <td>{{ x.sdate }}</td>
+        <td>{{ x.sp.bname.bname }}</td>
+        <td>{{ x.sp.name }}</td>
+        <td>{{ x.sp.size }}</td>
+        <td>{{ x.to_customer }}</td>
+        <td>{{ x.srate }}</td>
+        <td>{{ x.squantity }}</td>
+        <td>{{ x.discounttype }}</td>
+        <td>{{ x.discount }}</td>
+        <td>{{ x.sprice }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

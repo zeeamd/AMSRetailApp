@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    h4 {
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: right;
+    }
+</style>
+
+<h3>Credit History</h3>
+
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Customer Name</th>
+        <th>Credit Amount</th>
+    </tr>
+    {% for x in allcredit %}
+    <tr>
+        <td>{{ x.cdate }}</td>
+        <td>{{ x.ccustomer }}</td>
+        <td>{{ x.camount }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

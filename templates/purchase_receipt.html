@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<h4>AMS Purchase Receipt</h4>
+
+<table>
+    <tr>
+        <td>
+            <strong>Brand Name</strong>
+        </td>
+        <td>
+            <strong>{{ b }}</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Product Name</strong>
+        </td>
+        <td>
+            <strong>{{ pn }}</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Product Size</strong>
+        </td>
+        <td>
+            <strong>{{ ps }}</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Quantity</strong>
+        </td>
+        <td>
+            <strong>{{ q }}</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Rate</strong>
+        </td>
+        <td>
+            <strong>{{ r }}</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Cost Price</strong>
+        </td>
+        <td>
+            <strong>{{ cp }}</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Notes</strong>
+        </td>
+        <td>
+            <strong>{{ n }}</strong>
+        </td>
+    </tr>
+</table>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    h4 {
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: right;
+    }
+</style>
+
+<h3>Brands</h3>
+
+<table>
+    <th>Brand Name</th>
+    {% for x in brands %}
+    <tr>
+        <td>{{ x.bname }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

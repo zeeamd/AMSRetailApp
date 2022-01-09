@@ -1,0 +1,50 @@
+const brandName = document.getElementById('brand_name')
+var productName = document.getElementById('product_name')
+var productSize = document.getElementById('product_size')
+
+brandName.addEventListener('change', e=>{
+    const selectedValue = e.target.value
+    $.ajax({
+        type: 'GET',
+        url: `product-json/${selectedValue}/`,
+        success: function(response){
+            const data = response.data
+            productName.options.length = 0;
+	    var blankOpt = document.createElement('option')
+	    blankOpt.text = " "
+	    blankOpt.value = " "
+	    productName.appendChild(blankOpt)
+            data.map(i=>{
+                var opt = document.createElement('option')
+                opt.text = i.name
+                opt.value = i.name
+                productName.appendChild(opt)
+            })
+        },
+        error: function(error){
+            console.log(error)
+        }
+    })
+})
+
+productName.addEventListener('change', e=>{
+    const selectedValue = e.target.value
+    $.ajax({
+        type: 'GET',
+        url: `productsize-json/${selectedValue}/`,
+        success: function(response){
+            const data = response.data
+            console.log(data)
+            productSize.options.length = 0;
+            data.map(i=>{
+                var opt = document.createElement('option')
+                opt.text = i.size
+                opt.value = i.size
+                productSize.appendChild(opt)
+            })
+        },
+        error: function(error){
+            console.log(error)
+        }
+    })
+})

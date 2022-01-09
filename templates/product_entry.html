@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    h4 {
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: right;
+    }
+</style>
+
+<h3>Add a new Product</h3>
+
+<form action="newproductsaved" method='post'>
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>
+                <label for="brand_name">Brand Name</label>               
+            </td>
+            <td>
+                <select id="bn" name="brand_name">
+                    {% for x in brands %}
+                        <option value="{{ x.bname }}">{{ x.bname }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="product_name">Product Name</label>
+            </td>
+            <td>
+                <input type="text" name="product_name"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="product_size">Product Size</label>
+            </td>
+            <td>
+                <input type="text" name="product_size"/>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" name="Submit" value="Save"/>
+</form>
+
+<div>
+    {% for msg in messages %}
+    <h5>{{ msg }}</h5>
+    {% endfor %}
+</div>
+
+{% endblock %}
